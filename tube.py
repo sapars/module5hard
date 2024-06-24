@@ -1,6 +1,14 @@
 from user import User
 from video import Video
-from time import sleep
+from threads import *
+
+
+def input_thread():
+    global user_input
+    user_input = input()
+
+
+user_input = None
 
 
 class UrTube:
@@ -70,15 +78,17 @@ class UrTube:
 
     @classmethod
     def watch_video(cls, title):
-
+        global user_input
+        t3 = threading.Thread(target=input_thread)
+        t3.start()
         current_time = 0
-        print('the movie is on for:\n')
-        while(1):
+        print(f'the movie {title} is on for:\n')
+        while 1:
             sleep(1)
             current_time += 1
             print(f'{current_time} seconds')
-            if input():
-                continue
+            if user_input is not None:
+                break
 
     @classmethod
     def users_info(cls):

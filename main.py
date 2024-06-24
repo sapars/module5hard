@@ -14,10 +14,10 @@ from notes_v import *
 
 
 
-tube = UrTube()
+tube: UrTube = UrTube()
 tube.add_video(*movs)
 print(tube.get_videos('z'))
-tube.watch_video()
+tube.watch_video("ZZZ")
 #
 # print(tube.video_titles)
 # # tube.register_new_user(user1)

@@ -11,7 +11,7 @@ class User:
 
     def __del__(self):
         if User.user_count:
-            print(f'User {self.user_name} was deleted')
+            # print(f'User {self.user_name} was deleted')
             User.user_count -= 1
 
     def __str__(self):
